@@ -1,5 +1,5 @@
 import React from 'react';
 
 
-export const Header = () => <header>This is the header!</header>
+export const Header = () => <header>UK broker Comparison!</header>
 
