@@ -15,8 +15,16 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
-				<UserInput />
-				<Results />
+				<UserInput
+					lumpSum={this.state.lumpSum}
+					monthlySum={this.state.monthlySum}
+					onChangeHandler={this.userInputHandler}
+					onClickHandler={this.pullInfo}
+				/>
+				<Results brokers={this.state.brokers}>
+					{cardContent}
+				</Results>
+				
 			</div>
 		);
 	};
