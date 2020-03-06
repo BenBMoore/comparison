@@ -1,0 +1,26 @@
+[
+    {
+        "broker_name": "Broker 1",
+        "dealing_charge": 5,
+        "platform_cost": 3.99,
+        "max_platform_cost": 300
+    },
+    {
+        "broker_name": "Broker 2",
+        "dealing_charge": 5,
+        "platform_cost": 3.99,
+        "max_platform_cost": 300
+    },
+    {
+        "broker_name": "Broker 3",
+        "dealing_charge": 5,
+        "platform_cost": 3.99,
+        "max_platform_cost": 300
+    },
+    {
+        "broker_name": "Broker 4",
+        "dealing_charge": 5,
+        "platform_cost": 3.99,
+        "max_platform_cost": 300
+    }
+]

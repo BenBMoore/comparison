@@ -2,10 +2,18 @@ import React from 'react';
 
 import classes from './Button.module.css';
 
-const button = () => {
+const button = (props:any) => {
+    let buttonClasses= [
+        classes.ButtonWrapper,
+        (props.position === 'onForm') ? classes.FormButtonWrapper : null
+    ];
     return (
-        <div className={classes.ButtonWrapper}>
-            <button>Calculate</button>
+        <div className={buttonClasses.join(' ')}>
+            <button
+                type={props.type}
+                name={props.name}
+                onClick={props.clicked}>{props.children}
+            </button>
         </div>
 
     );

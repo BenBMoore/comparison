@@ -1,18 +1,18 @@
 import React from 'react';
 import classes from './Card.module.css';
 
-const inputField = () => {
+const Card = (props: any) => {
     return (
-        <div className = {classes.Card}>
+        <div className={classes.Card}>
             <ul>
-                <li>Broker Number 1</li>
-                <li>Initial Charge</li>
-                <li>Ongoing Costs</li>
+                <li>{props.data.broker_name}</li>
+                <li>{props.data.dealing_charge}</li>
+                <li>{props.data.platform_cost}</li>
+                <li>{props.data.max_platform_cost}</li>
             </ul>
         </div>
-
 
     );
 }
 
-export default inputField;
+export default Card;

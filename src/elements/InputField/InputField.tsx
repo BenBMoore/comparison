@@ -2,11 +2,19 @@ import React from 'react';
 
 import classes from './InputField.module.css';
 
-const inputField = () => {
+const inputField = (props: any) => {
     return (
-        <div className = {classes.InputFieldWrapper}>
-            <label>Enter your monies</label>
-            <input type="number" min="0.01" step="0.01"></input>
+        <div className={classes.InputFieldWrapper}>
+            <label>{props.label}</label>
+            <input
+                type={props.type}
+                id={props.id}
+                name={props.name}
+                placeholder={props.placeholder}
+                value={props.value}
+                onChange={props.handleChange}
+                required
+            />
         </div>
 
 
