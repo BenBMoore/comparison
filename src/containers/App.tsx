@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import classes from '../components/Results/Results.module.css';
 
 import { MoonLoader } from 'react-spinners';
 
 import { Header } from '../components/Header/Header';
 import { UserInput } from '../components/UserInput/UserInput';
-import { Results } from '../components/Results/Results';
+import Card from '../elements/Card/Card';
 
 class App extends Component {
 	state = {
@@ -13,11 +14,11 @@ class App extends Component {
 		error: false,
 		lumpSum: null,
 		monthlySum: null,
-		brokers: null,
+		brokers: [],
 	}
 
 	async componentDidMount() {
-		
+
 
 	}
 	//Update state with current money amounts
@@ -35,7 +36,7 @@ class App extends Component {
 
 	}
 
-	pullInfo = async () =>{
+	pullInfo = async () => {
 		this.setState({
 			loading: true,
 			error: false,
@@ -44,6 +45,7 @@ class App extends Component {
 			const response = await fetch("../data/brokerdata.json");
 			const json = await response.json();
 			this.setState({ brokers: json });
+						this.setState({loading: false})
 		} catch (error) {
 			console.log(error);
 			this.setState({ error: true })
@@ -56,9 +58,13 @@ class App extends Component {
 		if (this.state.loading) {
 			cardContent = <MoonLoader />
 		}
-		if (this.state.brokers != null) {
-			cardContent = <Results brokers={this.state.brokers} />
+		if(this.state.brokers && this.state.brokers.length)  {
+			cardContent = this.state.brokers.map(function(val:any, index:number){
+                return <Card key={index} data={val}/>
+                
+            });
 		}
+
 		return (
 			<div className="App">
 				<Header />
@@ -68,10 +74,10 @@ class App extends Component {
 					onChangeHandler={this.userInputHandler}
 					onClickHandler={this.pullInfo}
 				/>
-				<Results brokers={this.state.brokers}>
+				 <div className={classes.ResultsWrapper}>
 					{cardContent}
-				</Results>
-				
+				 </div>
+
 			</div>
 		);
 	};
