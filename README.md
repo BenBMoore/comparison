@@ -1,3 +1,5 @@
+## A website to compare different brokers within the UK based on lump sum and monthly investment amounts. STILL IN PROGRESS
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
